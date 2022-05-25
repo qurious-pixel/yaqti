@@ -1,7 +1,7 @@
 
 name: 'Install Qt5/Qt6 (yaqti)'
 description: 'Yet Another Qt Installer (yaqti!) - A Python based CLI installer for Qt5/Qt6 with support for Github Actions.'
-author: 'WillBrennan'
+author: 'qurious-pixel'
 branding:
   icon: 'package'
   color: 'red'
