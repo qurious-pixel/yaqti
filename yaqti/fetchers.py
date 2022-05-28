@@ -3,6 +3,7 @@ from typing import List
 from collections import defaultdict
 import requests
 import logging
+import re
 
 import xmltodict
 
