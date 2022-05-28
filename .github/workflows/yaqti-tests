@@ -1,0 +1,24 @@
+name: Yaqti Tests 
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.8]
+        qt: [5.15.2, 6.2.0, 6.3.0]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install yaqti
+        run: |
+          curl -sLO https://files.pythonhosted.org/packages/47/42/351389ca36c7adfc5f4e92d086cdb2bdbde13f1b89ee882f4a1cab2183ac/yaqti-2021.7.29-py3-none-any.whl
+          python3 -m pip yaqti-2021.7.29-py3-none-any.whl
+          ls -al .
+      - name: Test yaqti
+        run: |
+          python -m yaqti install --os linux --platform desktop --version ${{ matrix.qt }} --modules gcc_64
