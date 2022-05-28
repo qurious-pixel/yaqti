@@ -18,8 +18,10 @@ jobs:
       - name: Install yaqti
         run: |
           curl -sLO https://files.pythonhosted.org/packages/47/42/351389ca36c7adfc5f4e92d086cdb2bdbde13f1b89ee882f4a1cab2183ac/yaqti-2021.7.29-py3-none-any.whl
-          python3 -m pip install yaqti-2021.7.29-py3-none-any.whl -v
-          ls -al .
+          python3 -m pip install yaqti-2021.7.29-py3-none-any.whl -vvv --log log
+          cat log
+          ls /opt/hostedtoolcache/Python/3.8.12/x64/
+          tree /opt/hostedtoolcache/Python/3.8.12/x64/
       #- name: Test yaqti
       #  run: |
       #    python -m yaqti install --os linux --platform desktop --version ${{ matrix.qt }} --modules gcc_64
