@@ -1,5 +1,5 @@
 name: Python Formatting (YAPF)
-on: [push, pull_request]
+on: [pull_request] # [push, pull_request]
 jobs:
   formatting-check:
     runs-on: ubuntu-latest
