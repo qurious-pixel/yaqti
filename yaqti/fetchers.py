@@ -17,12 +17,9 @@ def fetch_versions():
 
     store_list = []
     regx = re.compile('\d\.\d+\.\d')
-    matches = ""
 
     matches = regx.findall(text)
-	
-    tags = set(matches)
-    versions = sorted(tags)
+    versions = sorted(set(matches))
 
     return versions
 
