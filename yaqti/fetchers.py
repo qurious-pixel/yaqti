@@ -13,12 +13,9 @@ from .helpers import split_version
 
 def fetch_versions():
     url = requests.get('https://api.github.com/repos/qt/qtdoc/git/refs/tags')
-    text = url.text
-
-    store_list = []
     regx = re.compile('\d\.\d+\.\d')
 
-    matches = regx.findall(text)
+    matches = regx.findall(url.text)
     versions = sorted(set(matches))
 
     return versions
