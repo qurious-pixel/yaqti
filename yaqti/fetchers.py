@@ -31,7 +31,7 @@ def fetch_archive_xml(os: str, platform: str, version: str):
         # note(will.brennan) - Qt changed their naming pattern
         stub = f'59'
 
-    base_url = f'https://download.qt.io/online/qtsdkrepository/{os}{arch}/{platform}/qt{major}_{stub}'
+    base_url = f'https://download.qt.io/online/qtsdkrepository/{os}{arch}/{platform}/qt{major}_{stub}/qt{major}_{stub}'
     xml_url = f'{base_url}/Updates.xml'
 
     r = requests.get(xml_url)
